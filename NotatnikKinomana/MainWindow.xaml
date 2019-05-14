@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotatnikKinomana"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="800">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Name="userImage" Source="Resources/girl.png" Margin="8" Width="50" Height="50"></Image>
+            <TextBox Name="searchTextBox" Grid.Column="1" Margin="8,16"></TextBox>
+            <Button Name="searchButton" Grid.Column="2" Padding="8,4" Margin="8,16">Search</Button>
+        </Grid>
+        <ContentControl Name="views"></ContentControl>
+    </StackPanel>
 </Window>

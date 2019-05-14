@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="NotatnikKinomana.ProfilOsobyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NotatnikKinomana"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"  Background="FloralWhite">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label FontSize="16">Charlize Theron</Label>
+        <Label VerticalAlignment="Bottom" Grid.Row="1">Urodzona: 07.08.1975, Benoni, RPA</Label>
+        <Image Source="Resources/charlize_theron.jpg" Grid.RowSpan="3" Grid.Column="2" Width="100" Margin="5" ></Image>
+        <Label Grid.Row="2">Biografia:</Label>
+        <Label Grid.Row="3">Role</Label>
+        <ListView Grid.Row="4" Name="ReviewsListBox" ItemsSource="{Binding ...}" >
+            <ListView.Resources>
+
+                <DataTemplate x:Key="DefaultItemTemplate">
+                    <TextBlock FontSize="12" Margin="0,0,10,0" Text="Tytuł i autor recenzji" Name="ReviewHeaderTextBlock" />
+                </DataTemplate>
+
+                <DataTemplate x:Key="SelectedItemTemplate">
+                    <Border BorderBrush="Red" BorderThickness="2" Padding="5">
+                        <StackPanel>
+                            <TextBlock FontSize="12" Margin="0,0,10,0" Text="Tytuł i autor recenzji" Name="ReviewHeaderTextBlock" />
+                            <TextBlock FontSize="12" Margin="0,0,10,0" Text="Treść recenzji" Name="ReviewContentTextBlock" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.Resources>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+
+                    <Setter Property="Margin" Value="0,2,0,2" />
+                    <Setter Property="Padding" Value="0,2,0,2" />
+                    <Setter Property="ContentTemplate" Value="{StaticResource DefaultItemTemplate}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SelectedItemTemplate}" />
+
+                            <!-- animate it as well 
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="MinHeight" To="80" Duration="0:0:1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="MinHeight" To="0" Duration="0:0:1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>-->
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</UserControl>

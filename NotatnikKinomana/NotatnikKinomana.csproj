@@ -55,7 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Lista_Filmow.xaml">
+    <Compile Include="ListaFilmowView.xaml.cs">
+      <DependentUpon>ListaFilmowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilFilmuView.xaml.cs">
+      <DependentUpon>ProfilFilmuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilOsobyView.xaml.cs">
+      <DependentUpon>ProfilOsobyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilUzytkownikaView.xaml.cs">
+      <DependentUpon>ProfilUzytkownikaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rejestracja.xaml.cs">
+      <DependentUpon>Rejestracja.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ListaFilmowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,28 +86,37 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Lista_Filmow.xaml.cs">
-      <DependentUpon>Lista_Filmow.xaml</DependentUpon>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Nowa_Recenzja.xaml">
+    <Page Include="NowaRecenzja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Profil_Filma.xaml">
+    <Page Include="ProfilFilmuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilOsobyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilUzytkownikaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rejestracja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nowa_Recenzja.xaml.cs">
-      <DependentUpon>Nowa_Recenzja.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Profil_Filma.xaml.cs">
-      <DependentUpon>Profil_Filma.xaml</DependentUpon>
+    <Compile Include="NowaRecenzja.xaml.cs">
+      <DependentUpon>NowaRecenzja.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -118,6 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\boraph.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\charlize_theron.jpg" />
+    <Resource Include="Resources\girl.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

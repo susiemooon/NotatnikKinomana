@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace NotatnikKinomana
 {
     /// <summary>
-    /// Логика взаимодействия для Profil_Filma.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Profil_Filma : Window
+    public partial class Login : Window
     {
-        public Profil_Filma()
+        public Login()
         {
             InitializeComponent();
         }

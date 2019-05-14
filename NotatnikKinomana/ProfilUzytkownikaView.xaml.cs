@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NotatnikKinomana
 {
     /// <summary>
-    /// Логика взаимодействия для Lista_Filmow.xaml
+    /// Interaction logic for ProfilUzytkownikaView.xaml
     /// </summary>
-    public partial class Lista_Filmow : Window
+    public partial class ProfilUzytkownikaView : UserControl
     {
-        public Lista_Filmow()
+        public ProfilUzytkownikaView()
         {
             InitializeComponent();
         }
