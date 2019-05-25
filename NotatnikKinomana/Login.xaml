@@ -20,6 +20,6 @@
         <TextBox Name="usernameTB" Grid.Column="1" VerticalAlignment="Center" Margin="8,8"></TextBox>
         <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0">Hasło</Label>
         <PasswordBox Name="passwordTB" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="8,0"></PasswordBox>
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Width="90" Height="30" Margin="8,8">Zaloguj</Button>
+        <Button Name="Zaloguj" Grid.Row="2" Grid.ColumnSpan="2" Width="90" Height="30" Margin="8,8" Click="Zaloguj_Click">Zaloguj</Button>
     </Grid>
 </Window>

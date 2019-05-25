@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NotatnikKinomana.Models;
+using System.Data.Entity;
 
 namespace NotatnikKinomana
 {
@@ -19,9 +21,33 @@ namespace NotatnikKinomana
     /// </summary>
     public partial class Login : Window
     {
+        DBContext db;
+        public string currentUser;
         public Login()
         {
             InitializeComponent();
+            db = new DBContext();
+        }
+
+        private void Zaloguj_Click(object sender, RoutedEventArgs e)
+        {
+            List<Uzytkownik> users = db.Uzytkownicy.ToList();
+            Uzytkownik user = users.Where(u => u.username == usernameTB.Text).FirstOrDefault();
+            if (user!=null && passwordTB.Password.ToString() == user.haslo)
+            {
+                currentUser = user.username;
+                this.Close();
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Nie prawidlowa nazwa użytkownika albo haslo!", "Alert", MessageBoxButton.OK);
+                if (result == MessageBoxResult.OK)
+                {
+                    usernameTB.Text = "";
+                    passwordTB.Password = "";
+                }
+            }
+
         }
     }
 }

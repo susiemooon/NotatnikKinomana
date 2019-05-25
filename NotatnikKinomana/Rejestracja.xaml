@@ -26,6 +26,6 @@
         <PasswordBox Name="passwordTB" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="8,0"></PasswordBox>
         <Label Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0">Powtórz hasło</Label>
         <PasswordBox Name="confirmPasswordTB" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="8,0"></PasswordBox>
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Width="90" Height="30" Margin="8,8">Zarejestruj</Button>
+        <Button Name="Zarejestruj" Grid.Row="4" Grid.ColumnSpan="2" Width="90" Height="30" Margin="8,8" Click="Zarejestruj_Click">Zarejestruj</Button>
     </Grid>
 </Window>
