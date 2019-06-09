@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="NotatnikKinomana.Views.ListaOsobView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NotatnikKinomana"
+             mc:Ignorable="d"
+             Background="FloralWhite">
+    <Grid>
+        <Grid.Resources>
+            <local:DebuggerConverter x:Key="DebuggerConverter" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <GroupBox Margin="3" Header="Sortuj po:">
+                <StackPanel>
+                    <RadioButton Margin="3" >Imię A-Z</RadioButton>
+                    <RadioButton Margin="3" >Imię Z-A</RadioButton>
+                    <RadioButton Margin="3" >Nazwisko A-Z</RadioButton>
+                    <RadioButton Margin="3" >Nazwisko Z-A</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Margin="3" Header="Filtrowanie:">
+                <StackPanel>
+                    <ComboBox  Margin="2" IsEditable="True">
+                        <ComboBoxItem>Kraj</ComboBoxItem>
+                        <ComboBoxItem>Profesja</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox Margin="3" Padding="4"></TextBox>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <ListBox Grid.Column="2" ItemsSource="{Binding Osoby}"
+            SelectedItem="{Binding WybranaOsoba}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding photo}" Height="140"></Image>
+                        <Label Grid.Column="1" Content="{Binding ImieNazwisko}"></Label>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

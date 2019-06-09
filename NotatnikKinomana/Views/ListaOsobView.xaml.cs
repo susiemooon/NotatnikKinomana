@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NotatnikKinomana.Models;
+using NotatnikKinomana.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +14,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace NotatnikKinomana
+namespace NotatnikKinomana.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Nowa_Recenzja.xaml
+    /// Interaction logic for ListaOsobView.xaml
     /// </summary>
-    public partial class NowaRecenzja : Window
+    public partial class ListaOsobView : UserControl
     {
-        public NowaRecenzja()
+        public ListaOsobView(List<Osoba> lista, MainWindowViewModel main)
         {
             InitializeComponent();
+            this.DataContext = new ListaOsobViewModel(lista, main);
         }
     }
 }

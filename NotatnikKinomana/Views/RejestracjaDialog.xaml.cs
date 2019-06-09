@@ -20,27 +20,24 @@ namespace NotatnikKinomana
     /// <summary>
     /// Interaction logic for Rejestracja.xaml
     /// </summary>
-    public partial class Rejestracja : Window
+    public partial class Rejestracja : Window, IDialog
     {
-        DBContext db;
-
         public Rejestracja()
         {
             InitializeComponent();
-            db = new DBContext();
         }
 
-        private void Zarejestruj_Click(object sender, RoutedEventArgs e)
+        private void PasswordTB_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (passwordTB.Password.ToString() == confirmPasswordTB.Password.ToString())
+            if (this.DataContext != null)
+            { ((dynamic)this.DataContext).Haslo = ((PasswordBox)sender).Password; }
+        }
+
+        private void ConfirmPasswordTB_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
             {
-                Uzytkownik u = new Uzytkownik();
-                u.username = usernameTB.Text;
-                u.email = emailTB.Text;
-                u.haslo = passwordTB.Password.ToString();
-                db.Uzytkownicy.Add(u);
-                db.SaveChanges();
-            }
+                ((dynamic)this.DataContext).PowtorzoneHaslo = ((PasswordBox)sender).Password; }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NotatnikKinomana.Models;
+using NotatnikKinomana.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace NotatnikKinomana
     /// </summary>
     public partial class ProfilOsobyView : UserControl
     {
-        public ProfilOsobyView()
+        public ProfilOsobyView(Osoba osoba, MainWindowViewModel main)
         {
             InitializeComponent();
+            this.DataContext = new ProfilOsobyViewModel(osoba, main);
+            
         }
     }
 }

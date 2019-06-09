@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NotatnikKinomana.Models;
+using NotatnikKinomana.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +18,16 @@ using System.Windows.Shapes;
 namespace NotatnikKinomana
 {
     /// <summary>
-    /// Interaction logic for ProfilFilmuView.xaml
+    /// Interaction logic for ListaFilmow.xaml
     /// </summary>
-    public partial class ProfilFilmuView : UserControl
+    public partial class ListaFilmowView : UserControl
     {
-        public ProfilFilmuView()
+
+        public ListaFilmowView(List<Film> wyniki, MainWindowViewModel main)
         {
             InitializeComponent();
+            this.DataContext = new ListaFilmowViewModel(wyniki, main);
         }
+
     }
 }

@@ -10,10 +10,12 @@ namespace NotatnikKinomana.Models
     public class Uzytkownik
     {
         [Key]
-        public int Id { get; set; }
         public string username { get; set; }
         public string email { get; set; }
         public string haslo { get; set; }
-        
+
+        public virtual ICollection<Recenzja> Recenzje { get; set; }
+        public virtual ICollection<ObejrzanyFilm> ObejrzaneFilmy { get; set; }
+        public virtual ICollection<DoObejrzeniaFilm> DoObejrzeniaFilmy { get; set; }
     }
 }

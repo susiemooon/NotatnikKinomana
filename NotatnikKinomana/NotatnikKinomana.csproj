@@ -44,6 +44,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,35 +64,70 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ListaFilmowView.xaml.cs">
+    <Compile Include="Data\FilmDataService.cs" />
+    <Compile Include="Data\OsobaDataService.cs" />
+    <Compile Include="Data\RecenzjaDataService.cs" />
+    <Compile Include="Data\UzytkownikDataService.cs" />
+    <Compile Include="DebuggerConverter.cs" />
+    <Compile Include="Migrations\201906092042452_InitialCreate.cs" />
+    <Compile Include="Migrations\201906092042452_InitialCreate.Designer.cs">
+      <DependentUpon>201906092042452_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RadioButtonConverter.cs" />
+    <Compile Include="IDialog.cs" />
+    <Compile Include="Models\Kraj.cs" />
+    <Compile Include="Models\Rola.cs" />
+    <Compile Include="ViewModel\ListaFilmowViewModel.cs" />
+    <Compile Include="ViewModel\ListaOsobViewModel.cs" />
+    <Compile Include="ViewModel\ProfilOsobyViewModel.cs" />
+    <Compile Include="ViewModel\ProfilUzytkownikaViewModel.cs" />
+    <Compile Include="ViewModel\RecenzjaViewModel.cs" />
+    <Compile Include="Views\ListaFilmowView.xaml.cs">
       <DependentUpon>ListaFilmowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Aktor.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DoObejrzeniaFilm.cs" />
+    <Compile Include="Models\Gatunek.cs" />
+    <Compile Include="Models\ObejrzanyFilm.cs" />
+    <Compile Include="Models\Osoba.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\Recenzja.cs" />
     <Compile Include="Models\Uzytkownik.cs" />
-    <Compile Include="ProfilFilmuView.xaml.cs">
+    <Compile Include="ViewModel\RejestracjaViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="Views\ListaOsobView.xaml.cs">
+      <DependentUpon>ListaOsobView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilFilmuView.xaml.cs">
       <DependentUpon>ProfilFilmuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfilOsobyView.xaml.cs">
+    <Compile Include="Views\ProfilOsobyView.xaml.cs">
       <DependentUpon>ProfilOsobyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfilUzytkownikaView.xaml.cs">
+    <Compile Include="Views\ProfilUzytkownikaView.xaml.cs">
       <DependentUpon>ProfilUzytkownikaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Rejestracja.xaml.cs">
-      <DependentUpon>Rejestracja.xaml</DependentUpon>
+    <Compile Include="Views\RejestracjaDialog.xaml.cs">
+      <DependentUpon>RejestracjaDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="ListaFilmowView.xaml">
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewModel\ProfilFilmuViewModel.cs" />
+    <Page Include="Views\ListaFilmowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="Views\ListaOsobView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\LoginDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -98,36 +135,36 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Views\LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NowaRecenzja.xaml">
+    <Page Include="Views\NowaRecenzja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfilFilmuView.xaml">
+    <Page Include="Views\ProfilFilmuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfilOsobyView.xaml">
+    <Page Include="Views\ProfilOsobyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfilUzytkownikaView.xaml">
+    <Page Include="Views\ProfilUzytkownikaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Rejestracja.xaml">
+    <Page Include="Views\RejestracjaDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NowaRecenzja.xaml.cs">
+    <Compile Include="Views\NowaRecenzja.xaml.cs">
       <DependentUpon>NowaRecenzja.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -143,6 +180,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201906092042452_InitialCreate.resx">
+      <DependentUpon>201906092042452_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -162,10 +202,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\charlize_theron.jpg" />
-    <Resource Include="Resources\girl.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

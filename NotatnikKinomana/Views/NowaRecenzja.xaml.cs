@@ -10,15 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NotatnikKinomana
 {
-   
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для Nowa_Recenzja.xaml
+    /// </summary>
+    public partial class NowaRecenzja : Window, IDialog
     {
-        public MainWindow()
+        public NowaRecenzja()
         {
             InitializeComponent();
         }
