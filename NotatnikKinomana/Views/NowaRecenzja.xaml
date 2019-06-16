@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotatnikKinomana"
         mc:Ignorable="d"
-        Title="{Binding TytulOkna}" Height="250" Width="300">
+        Title="{Binding TytulOkna}" Height="250" Width="300"
+        Style="{StaticResource List}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -19,21 +20,21 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Margin="3" >Tytuł</Label>
-            <TextBox Margin="3" Grid.Column="1" Text="{Binding Tytul}"></TextBox>
+            <TextBox Margin="3" Grid.Column="1" Text="{Binding Tytul}" BorderBrush="Black"></TextBox>
         </Grid>
-        <TextBox Grid.Row="1" Margin="5" Text="{Binding Tresc}"></TextBox>
+        <TextBox Grid.Row="1" Margin="5" Text="{Binding Tresc}" BorderThickness="1" BorderBrush="Gray"></TextBox>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label >Ocena:</Label>
-            <Slider Grid.Column="2" Minimum="0" Maximum="10" Margin="5" Interval="1" TickFrequency="1" Value="{Binding Ocena}"></Slider>
+            <Slider Grid.Column="2" Minimum="0" Maximum="10" Margin="5" Interval="1" TickFrequency="1" Foreground="Black" TickPlacement="BottomRight" Value="{Binding Ocena}"></Slider>
             
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
-            <Button Margin="4" Padding="10,5" Command="{Binding AnulujCommand}">Anuluj</Button>
-            <Button Margin="4" Padding="10,5" Command="{Binding DodajRecenzjeCommand}">Ok</Button>
+            <Button Margin="4" Padding="10,5" Command="{Binding AnulujCommand}" Style="{StaticResource ButtonAnuluj}">Anuluj</Button>
+            <Button Margin="4" Padding="10,5" Command="{Binding DodajRecenzjeCommand}" Style="{StaticResource ButtonOK}">Ok</Button>
         </StackPanel>
     </Grid>
 </Window>

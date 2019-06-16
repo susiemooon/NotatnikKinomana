@@ -5,29 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NotatnikKinomana"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TabControl>
-            <TabItem Header="Do obejrzenia">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Style="{StaticResource Login}">
+    <Grid >
+        <TabControl Style="{StaticResource Login}">
+            <TabItem Header="Do obejrzenia" >
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="118.008"/>
+                        <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="10.992"/>
                         <ColumnDefinition Width="38.647"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="3">
-                        <GroupBox Margin="3" Header="Sortuj po:">
+                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Style="{StaticResource Login}">
+                        <GroupBox Margin="3" Header="Sortuj po:" Style="{StaticResource Border}">
                             <StackPanel>
-                                <RadioButton Margin="3" >A-Z</RadioButton>
-                                <RadioButton Margin="3" >Z-A</RadioButton>
-                                <RadioButton Margin="3" >Data premiery malejąco</RadioButton>
-                                <RadioButton Margin="3" >Data premiery rosnąco</RadioButton>
-                                <RadioButton Margin="3" >Średnia ocen malejąco</RadioButton>
-                                <RadioButton Margin="3" >Średnia ocen rosnąco</RadioButton>
+                                <RadioButton GroupName="Sort" Name="AZ" Click="Sort_Click" Margin="3" >A-Z</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort" Name="ZA" Click="Sort_Click">Z-A</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort" Name="DataM" Click="Sort_Click" >Data premiery malejąco</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort" Name="DataR" Click="Sort_Click">Data premiery rosnąco</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort" Name="SredniaM" Click="Sort_Click">Średnia ocen malejąco</RadioButton>
+                                <RadioButton Margin="3"  GroupName="Sort" Name="SredniaR" Click="Sort_Click">Średnia ocen rosnąco</RadioButton>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Margin="3" Header="Filtrowanie:">
+                        <GroupBox Margin="3" Header="Filtrowanie:" Style="{StaticResource Border}">
                             <StackPanel>
                                 <ComboBox  Margin="2" IsEditable="True">
                                     <ComboBoxItem>Gatunek</ComboBoxItem>
@@ -35,16 +36,17 @@
                                     <ComboBoxItem>Kraj</ComboBoxItem>
                                     <ComboBoxItem>Średnia ocen</ComboBoxItem>
                                 </ComboBox>
-                                <TextBox Margin="3" Padding="4"></TextBox>
+                                <TextBox Margin="3" Padding="4" Style="{StaticResource Border}"></TextBox>
+                                <Button Margin="3" Padding="4" Style="{StaticResource ButtonRegister}">Filtruj</Button>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
-                    <ListBox Grid.Column="3" Name="DoObejrzeniaLB" ItemsSource="{Binding DoObejrzenia}" Margin="8">
+                    <ListBox Grid.Column="3" Style="{StaticResource List}" Name="DoObejrzeniaLB" ItemsSource="{Binding DoObejrzenia}" Margin="8">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Width="auto">
+                                <StackPanel Width="auto" Orientation="Horizontal">
                                     <Image Source="{Binding plakat}" Height="80" Margin="4"></Image>
-                                    <TextBlock Grid.Row="1" Text="{Binding TytulRok}"  Margin="4"></TextBlock>
+                                    <TextBlock Grid.Row="1" FontSize="18" Text="{Binding TytulRok}"  Margin="4"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -58,17 +60,17 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical">
-                        <GroupBox Margin="3" Header="Sortuj po:">
+                        <GroupBox Margin="3" Header="Sortuj po:" Style="{StaticResource Border}">
                             <StackPanel>
-                                <RadioButton Margin="3" >A-Z</RadioButton>
-                                <RadioButton Margin="3" >Z-A</RadioButton>
-                                <RadioButton Margin="3" >Data premiery malejąco</RadioButton>
-                                <RadioButton Margin="3" >Data premiery rosnąco</RadioButton>
-                                <RadioButton Margin="3" >Średnia ocen malejąco</RadioButton>
-                                <RadioButton Margin="3" >Średnia ocen rosnąco</RadioButton>
+                                <RadioButton GroupName="Sort_Obejrzone" Name="AZ_O" Click="Sort_Click" Margin="3" >A-Z</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort_Obejrzone" Name="ZA_O" Click="Sort_Click">Z-A</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort_Obejrzone" Name="DataM_O" Click="Sort_Click">Data premiery malejąco</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort_Obejrzone" Name="DataR_O" Click="Sort_Click">Data premiery rosnąco</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort_Obejrzone" Name="SredniaM_O" Click="Sort_Click">Średnia ocen malejąco</RadioButton>
+                                <RadioButton Margin="3" GroupName="Sort_Obejrzone" Name="SredniaR_O" Click="Sort_Click">Średnia ocen rosnąco</RadioButton>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Margin="3" Header="Filtrowanie:">
+                        <GroupBox Margin="3" Header="Filtrowanie:" Style="{StaticResource Border}">
                             <StackPanel>
                                 <ComboBox  Margin="2" IsEditable="True">
                                     <ComboBoxItem>Gatunek</ComboBoxItem>
@@ -76,16 +78,17 @@
                                     <ComboBoxItem>Kraj</ComboBoxItem>
                                     <ComboBoxItem>Średnia ocen</ComboBoxItem>
                                 </ComboBox>
-                                <TextBox Margin="3" Padding="4"></TextBox>
+                                <TextBox Margin="3" Padding="4" Style="{StaticResource Border}"></TextBox>
+                                <Button Margin="3" Padding="4" Style="{StaticResource Button}">Filtruj</Button>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
-                    <ListBox Grid.Column="1" Name="ObejrzaneLB" ItemsSource="{Binding Obejrzane}" Grid.ColumnSpan="2" Margin="8">
+                    <ListBox Grid.Column="1" Name="ObejrzaneLB" ItemsSource="{Binding Obejrzane}" Style="{StaticResource List}" Grid.ColumnSpan="2" Margin="8">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Width="auto">
+                                <StackPanel Width="auto" Orientation="Horizontal">
                                     <Image Source="{Binding plakat}" Height="80" Margin="4"></Image>
-                                    <TextBlock Grid.Row="1" Text="{Binding TytulRok}"  Margin="4"></TextBlock>
+                                    <TextBlock Grid.Row="1" Text="{Binding TytulRok}" FontSize="18" Margin="4"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

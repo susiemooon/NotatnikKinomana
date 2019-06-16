@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NotatnikKinomana"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"  Background="FloralWhite">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Style="{StaticResource Login}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="64"></RowDefinition>
@@ -19,23 +21,24 @@
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Osoba.ImieNazwisko}" Grid.ColumnSpan="2"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="0">Data i miejsce urodzenia</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Osoba.MiejsceDataUrodzenia}"></TextBlock>
-        <Image Source="{Binding Osoba.photo}" Grid.RowSpan="3" Grid.Column="2" Width="50" Margin="5" ></Image>
-        <TextBlock Grid.Row="2" Grid.Column="0">Biografia</TextBlock>
-        <ScrollViewer Grid.Row="2" Grid.Column="1"  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" >
+        <TextBlock Text="{Binding Osoba.ImieNazwisko}" Grid.ColumnSpan="2" Margin="5" FontSize="18"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="3">Data urodzenia</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Osoba.data_urodzenia, StringFormat='{}{0:dd MMMM yyyy}'}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3">Miejsce urodzenia</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Osoba.pochodzenie.nazwa}"></TextBlock>
+        <Image Source="{Binding Osoba.photo}" Grid.RowSpan="3" Grid.Column="2" Width="70" Height="100" Margin="5" ></Image>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="3">Biografia</TextBlock>
+        <ScrollViewer Grid.Row="3" Grid.Column="1"  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" >
             <TextBlock Text="{Binding Osoba.biografia}" TextWrapping="Wrap"></TextBlock>
         </ScrollViewer>
-        <TextBlock Grid.Row="3" Grid.Column="0">Filmy</TextBlock>
-        <ListBox Grid.Row="4" Name="ReviewsListBox" ItemsSource="{Binding Osoba.role}" Grid.ColumnSpan="2" Margin="8">
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="3">Filmy</TextBlock>
+        <ListBox Grid.Row="5" Name="ReviewsListBox" Style="{StaticResource SmallList}" ItemsSource="{Binding Osoba.role}" Grid.ColumnSpan="2" Margin="8">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-
+                    <StackPanel Orientation="Vertical">
                         <Image Source="{Binding photo}" Height="80" Margin="4"></Image>
-                        <TextBlock Text="{Binding film.FilmRok}"  Margin="4"></TextBlock>
-                        <TextBlock  Text="{Binding nazwa}"></TextBlock>
+                        <TextBlock Text="{Binding film.nazwa}" FontSize="16" FontFamily="Segoe UI"  Margin="4"></TextBlock>
+                        <TextBlock  Text="{Binding nazwa}" FontSize="14" FontFamily="Segoe UI" ></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

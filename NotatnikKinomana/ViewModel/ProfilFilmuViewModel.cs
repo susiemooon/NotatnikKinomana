@@ -143,7 +143,16 @@ namespace NotatnikKinomana.ViewModel
                         recenzja.tytul = (string)recenzjaVM.Content[0];
                         recenzja.tekst = (string)recenzjaVM.Content[1];
                         recenzja.ocena = (int)recenzjaVM.Content[2];
+
+                        // srednia ocen 
+                        Film film = context.Filmy.SingleOrDefault(f => f.ID == recenzja.FilmID);
+                        if (film.srednia_ocen != 0)
+                            film.srednia_ocen = (film.srednia_ocen + recenzja.ocena) / 2;
+                        else
+                            film.srednia_ocen += recenzja.ocena;
+                                                
                         context.Recenzje.AddOrUpdate(recenzja);
+                        context.Filmy.AddOrUpdate(film);
                         context.SaveChanges();
                     }
                 }

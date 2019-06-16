@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotatnikKinomana"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800">
-
+        Title="MainWindow" Height="700" Width="840"
+        Style="{StaticResource Background}">
+        
     <Window.Resources>
         <local:DebuggerConverter x:Key="DebuggerConverter" />
         <local:RadioButtonConverter x:Key="RadioButtonConverter" />
+        
     </Window.Resources>
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -22,19 +24,21 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="5*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Image Name="userImage" Source="/Resources/user.png" Margin="8" Width="50" Height="50" MouseLeftButtonDown="UserImage_MouseLeftButtonDown"></Image>
-            <TextBox Name="searchTextBox" Grid.Column="1" Margin="8,16" Text="{Binding TekstWyszukiwania}"></TextBox>
-            <Button Name="searchButton" Grid.Column="2" Padding="8,4" Margin="8,16" Command="{Binding SzukajCommand}">Search</Button>
-            <GroupBox Grid.Column="3" Header="Typ wyszukiwania">
+            <TextBox Name="searchTextBox" Grid.Column="1" Margin="8,16" FontSize="16" Text="{Binding TekstWyszukiwania}" Style="{StaticResource Border}"></TextBox>
+            <Button Name="searchButton" Grid.Column="2" Command="{Binding SzukajCommand}" Style="{StaticResource Button}">Search</Button>
+            <GroupBox Grid.Column="3" Header="Typ wyszukiwania"  FontSize="14"  BorderBrush="Black" >
                 <StackPanel Orientation="Vertical" >
-                    <RadioButton GroupName="TypWyszukiwaniaGroup" Content="Film" IsChecked="{Binding Path=TypWyszukiwania, Converter={StaticResource RadioButtonConverter}, ConverterParameter=film}"></RadioButton>
-                    <RadioButton GroupName="TypWyszukiwaniaGroup" Content="Osoba"  IsChecked="{Binding Path=TypWyszukiwania, Converter={StaticResource RadioButtonConverter}, ConverterParameter=osoba}"></RadioButton>
+                    <RadioButton GroupName="TypWyszukiwaniaGroup" Content="Film" IsChecked="{Binding Path=TypWyszukiwania, Converter={StaticResource RadioButtonConverter}, ConverterParameter=film}" ></RadioButton>
+                    <RadioButton GroupName="TypWyszukiwaniaGroup" Content="Osoba"  IsChecked="{Binding Path=TypWyszukiwania, Converter={StaticResource RadioButtonConverter}, ConverterParameter=osoba}" HorizontalAlignment="Right" Width="120"></RadioButton>
                 </StackPanel>
             </GroupBox>
         </Grid>
+
         <ContentControl Name="views" Content="{Binding CurrentView}" Grid.Row="1">
+            
         </ContentControl>
     </Grid>
 </Window>

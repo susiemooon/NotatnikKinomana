@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotatnikKinomana"
         mc:Ignorable="d"
-        Title="Login" Height="144" Width="450">
+        Title="Login" Height="150" Width="450"
+        Style="{StaticResource Login}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -17,12 +18,12 @@
             <ColumnDefinition Width="4*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label HorizontalAlignment="Right" VerticalAlignment="Center">Nazwa użytkownika</Label>
-        <TextBox Name="usernameTB" Grid.Column="1" VerticalAlignment="Center" Margin="8,8" Text="{Binding NazwaUzytkownika}"></TextBox>
+        <TextBox Name="usernameTB" Grid.Column="1" VerticalAlignment="Center" Margin="8,8" Style="{StaticResource Border}" Text="{Binding NazwaUzytkownika}"></TextBox>
         <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0">Hasło</Label>
-        <PasswordBox Name="passwordTB" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="8,0" PasswordChanged="PasswordTB_PasswordChanged"></PasswordBox>
+        <PasswordBox Name="passwordTB" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Border}" PasswordChanged="PasswordTB_PasswordChanged"></PasswordBox>
         <StackPanel  Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Margin="24,0" Orientation="Horizontal">
-            <Button Name="Zaloguj" Width="90" Height="30" Margin="8,8" Command="{Binding ZalogujCommand}" >Zaloguj</Button>
-            <Button Name="Zarejestruj"  Width="90" Height="30" Margin="8,8" Command="{Binding ZarejestrujCommand}" Content="Zarejestruj"/>
+            <Button Name="Zaloguj" Width="90" Height="30" Margin="8,8" Style="{StaticResource Button}" Command="{Binding ZalogujCommand}" >Zaloguj</Button>
+            <Button Name="Zarejestruj"  Width="90" Height="30" Margin="8,8" Style="{StaticResource ButtonRegister}" Command="{Binding ZarejestrujCommand}" Content="Zarejestruj"/>
         </StackPanel>
         
     </Grid>

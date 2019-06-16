@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NotatnikKinomana"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800"
-             Background="FloralWhite">
+             Style="{StaticResource Login}">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -31,41 +31,41 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="16" Text="{Binding Film.nazwa}"></TextBlock>
-            <TextBlock Grid.Row="1">Data premiery:</TextBlock>
-            <TextBlock Text="{Binding Film.data_premiery, StringFormat='{}{0:dd MMMM yyyy}'}" Grid.Row="1" Grid.Column="1"></TextBlock>
-            <TextBlock Grid.Row="2">Kraj produkcji:</TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Film.KrajeProdukcjiString}" />
-            <TextBlock Grid.Row="3">Ekipa filmowa:</TextBlock>
-            <ListBox ItemsSource="{Binding Film.ekipa}" SelectedItem="{Binding WybranaOsoba}" MinHeight="100" Grid.Row="3" Grid.Column="1">
+            <TextBlock FontSize="18" Text="{Binding Film.nazwa}" Margin="5"></TextBlock>
+            <TextBlock Grid.Row="1" Margin="3">Data premiery:</TextBlock>
+            <TextBlock Margin="3" Text="{Binding Film.data_premiery, StringFormat='{}{0:dd MMMM yyyy}'}" Grid.Row="1" Grid.Column="1"></TextBlock>
+            <TextBlock Grid.Row="2" Margin="3">Kraj produkcji:</TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Film.KrajeProdukcjiString}" />
+            <TextBlock Grid.Row="3" Margin="3">Ekipa filmowa:</TextBlock>
+            <ListBox ItemsSource="{Binding Film.ekipa}" SelectedItem="{Binding WybranaOsoba}" Style="{StaticResource SmallList}" BorderThickness="2" BorderBrush="Gray" MinHeight="100" Grid.Row="3" Grid.Column="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <Image Source="{Binding photo}" Height="100"></Image>
-                            <TextBlock Text="{Binding ImieNazwisko}"></TextBlock>
+                            <TextBlock FontSize="14" FontFamily="Segoe UI" FontWeight="SemiBold" Text="{Binding ImieNazwisko}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <TextBlock Grid.Row="4">Opis:</TextBlock>
-            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Film.opis}" TextWrapping="Wrap"></TextBlock>
+            <TextBlock Grid.Row="4" Margin="6">Opis:</TextBlock>
+            <TextBlock Grid.Row="4" Grid.Column="1" Margin="6" Text="{Binding Film.opis}" TextWrapping="Wrap"></TextBlock>
         </Grid>
         <Image Source="{Binding Film.plakat}" Grid.Column="2" Width="100" Margin="5" ></Image>
         
-        <TextBlock Grid.Row="1">Recenzje użytkowników</TextBlock>
-        <ListView Grid.Row="2" Name="ReviewsListBox" ItemsSource="{Binding Film.recenzje}" >
+        <TextBlock Grid.Row="1" Margin="3">Recenzje użytkowników</TextBlock>
+        <ListView Grid.Row="2" Margin="3" Name="ReviewsListBox" Style="{StaticResource SmallList}" BorderBrush="Gray" BorderThickness="2" ItemsSource="{Binding Film.recenzje}" >
             <ListView.Resources>
                 <DataTemplate x:Key="DefaultItemTemplate">
-                    <StackPanel>
-                        <TextBlock FontSize="12" Margin="0,0,10,0" Text="{Binding autor.username}" Name="ReviewAuthorTB" />
-                        <TextBlock FontSize="12" Margin="0,0,10,0" Text="{Binding tytul}" Name="ReviewTitleTB" />
+                    <StackPanel >
+                        <TextBlock FontSize="15" FontFamily="Segoe UI" FontWeight="SemiBold"  Margin="0,0,10,0" Text="{Binding autor.username}" Name="ReviewAuthorTB" />
+                        <TextBlock FontSize="14" FontFamily="Segoe UI"  Margin="0,0,10,0" Text="{Binding tytul}" Name="ReviewTitleTB" />
                     </StackPanel>
                 </DataTemplate>
                 <DataTemplate x:Key="SelectedItemTemplate">
                         <StackPanel>
-                        <TextBlock FontSize="12" Margin="0,0,10,0" Text="{Binding autor.username}" Name="ReviewAuthorTB" />
-                        <TextBlock FontSize="12" Margin="0,0,10,0" Text="{Binding tytul}" Name="ReviewTitleTB" />
-                        <TextBlock Text="{Binding tekst}" TextWrapping="Wrap" Name="ReviewContentTB"></TextBlock>
+                        <TextBlock FontSize="15" FontFamily="Segoe UI" FontWeight="SemiBold" Margin="0,0,10,0" Text="{Binding autor.username}" Name="ReviewAuthorTB" />
+                        <TextBlock FontSize="14" FontFamily="Segoe UI" Margin="0,0,10,0" Text="{Binding tytul}" Name="ReviewTitleTB" />
+                        <TextBlock Text="{Binding tekst}" TextWrapping="Wrap" Name="ReviewContentTB" FontFamily="Segoe UI" FontSize="13"></TextBlock>
                     </StackPanel>
                     </DataTemplate>
                 </ListView.Resources>
@@ -102,8 +102,8 @@
                 </ListView.ItemContainerStyle>
             </ListView>
         <StackPanel Grid.Row="3" Grid.Column="2">
-            <CheckBox  Margin="5" IsChecked="{Binding IsChecked}">Do obejrzenia</CheckBox>
-            <Button Margin="5" Command="{Binding OcenFilmCommand}">Oceń film</Button>
+            <CheckBox  Margin="5" IsChecked="{Binding IsChecked}" BorderBrush="Black" BorderThickness="2" >Do obejrzenia</CheckBox>
+            <Button Margin="5" Command="{Binding OcenFilmCommand}" Style="{StaticResource ButtonRegister}">Oceń film</Button>
         </StackPanel>
     </Grid>
 </UserControl>

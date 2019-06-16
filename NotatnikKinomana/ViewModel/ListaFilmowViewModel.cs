@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace NotatnikKinomana.ViewModel
 {
@@ -52,6 +54,46 @@ namespace NotatnikKinomana.ViewModel
             this.Filmy = filmy;
             this.mainVM = main;
             this.WybranyFilm = null;
+
+           SortujCommand = new RelayCommand(new Action<object>(Sort));
+        }
+
+        private ICommand _SortujCommand;
+        public ICommand SortujCommand
+        {
+            get
+            {
+                return _SortujCommand;
+            }
+            set
+            {
+                _SortujCommand = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private void Sort(object sender)
+        {
+            //RadioButton radioButton = (RadioButton)sender;
+            //string sortBy = radioButton.Content.ToString();
+            //if ((bool)radioButton.IsChecked)
+            //{
+               // switch (sortBy)
+                //{
+                  //  case "A-Z":
+                        Filmy.Sort(delegate (Film x, Film y)
+                        {
+                            return x.nazwa.CompareTo(y.nazwa);
+                        });
+             
+                        //this.DataContext = new ListaFilmowViewModel(wyniki, main); 
+                        mainVM.CurrentView = new ListaFilmowView(Filmy, mainVM);
+
+                    //    break;
+                    //default: break;
+                //}
+            //}
+
         }
     }
 }
