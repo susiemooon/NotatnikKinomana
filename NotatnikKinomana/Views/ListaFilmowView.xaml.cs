@@ -2,6 +2,7 @@
 using NotatnikKinomana.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,20 +23,22 @@ namespace NotatnikKinomana
     /// </summary>
     public partial class ListaFilmowView : UserControl
     {
-        List<Film> wyniki;
-        MainWindowViewModel main;
+        
         public ListaFilmowView(List<Film> wyniki, MainWindowViewModel main)
         {
             InitializeComponent();
-            this.wyniki = wyniki;
-            this.main = main;
-            this.DataContext = new ListaFilmowViewModel(wyniki, main);
+            ObservableCollection<Film> list;
+            if (wyniki != null)
+               list  = new ObservableCollection<Film>(wyniki);
+            else
+               list = new ObservableCollection<Film>();
+            this.DataContext = new ListaFilmowViewModel(list, main);
+            filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy;
         }
 
         private void Sort_Click(object sender, RoutedEventArgs e)
         {
-            if (wyniki == null)
-                return;
+            
             RadioButton radioButton = (RadioButton)sender;
             string sortBy = radioButton.Name.ToString();
             if ((bool)radioButton.IsChecked)
@@ -43,46 +46,23 @@ namespace NotatnikKinomana
                 switch (sortBy)
                 {
                     case "AZ":
-                         wyniki.Sort(delegate(Film x, Film y)
-                        {
-                            return x.nazwa.CompareTo(y.nazwa);
-                        });
-                        main.CurrentView = new ListaFilmowView(wyniki, main);
+                        filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy.OrderBy(x => x.nazwa);
+
                         break;
                     case "ZA":
-                        wyniki.Sort(delegate (Film x, Film y)
-                        {
-                            return y.nazwa.CompareTo(x.nazwa);
-                        });
-                        main.CurrentView = new ListaFilmowView(wyniki, main);
+                        this.filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy.OrderByDescending(x => x.nazwa);
                         break;
                     case "DataR":
-                        wyniki.Sort(delegate (Film x, Film y)
-                        {
-                            return x.data_premiery.CompareTo(y.data_premiery);
-                        });
-                        main.CurrentView = new ListaFilmowView(wyniki, main);
+                        this.filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy.OrderBy(x => x.data_premiery);
                         break;
                     case "DataM":
-                        wyniki.Sort(delegate (Film x, Film y)
-                        {
-                            return y.data_premiery.CompareTo(x.data_premiery);
-                        });
-                        main.CurrentView = new ListaFilmowView(wyniki, main);
+                        this.filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy.OrderByDescending(x => x.data_premiery);
                         break;
                     case "SredniaR":
-                        wyniki.Sort(delegate (Film x, Film y)
-                        {
-                            return x.srednia_ocen.CompareTo(y.srednia_ocen);
-                        });
-                        main.CurrentView = new ListaFilmowView(wyniki, main);
+                        this.filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy.OrderBy(x => x.srednia_ocen);
                         break;
                     case "SredniaM":
-                        wyniki.Sort(delegate (Film x, Film y)
-                        {
-                            return y.srednia_ocen.CompareTo(x.srednia_ocen);
-                        });
-                        main.CurrentView = new ListaFilmowView(wyniki, main);
+                        this.filmList.ItemsSource = ((ListaFilmowViewModel)this.DataContext).Filmy.OrderByDescending(x => x.srednia_ocen);
                         break;
                     default: break;
                 }

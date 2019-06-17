@@ -35,8 +35,8 @@
             </GroupBox>
         </StackPanel>
 
-        <ListBox Grid.Column="2" Style="{StaticResource List}"  ItemsSource="{Binding Osoby}"
-            SelectedItem="{Binding WybranaOsoba}">
+        <ListBox Grid.Column="2" Style="{StaticResource List}" Name="osobyList"  ItemsSource="{Binding Osoby, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding WybranaOsoba,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid >

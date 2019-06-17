@@ -2,6 +2,7 @@
 using NotatnikKinomana.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -134,7 +135,7 @@ namespace NotatnikKinomana.ViewModel
 
             if (TypWyszukiwania == "film")
             {
-                var wyniki = context.Filmy.Where(film => film.nazwa.ToLower().Contains(TekstWyszukiwania.ToLower())).ToList();
+                var wyniki =  context.Filmy.Where(film => film.nazwa.ToLower().Contains(TekstWyszukiwania.ToLower())).ToList();
                 CurrentView = new ListaFilmowView(wyniki, this);
             }
             else

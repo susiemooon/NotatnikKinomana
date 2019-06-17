@@ -39,8 +39,8 @@
                 </GroupBox>
             </StackPanel>
 
-        <ListBox Grid.Column="2" Style="{StaticResource List}" ItemsSource="{Binding Filmy, UpdateSourceTrigger=PropertyChanged}"
-            SelectedItem="{Binding WybranyFilm}">
+        <ListBox Grid.Column="2" Style="{StaticResource List}" Name="filmList" ItemsSource="{Binding Filmy, UpdateSourceTrigger=PropertyChanged}" 
+            SelectedItem="{Binding WybranyFilm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                     <DataTemplate>
                     <Grid Grid.Row="1" >

@@ -41,7 +41,7 @@
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
-                    <ListBox Grid.Column="3" Style="{StaticResource List}" Name="DoObejrzeniaLB" ItemsSource="{Binding DoObejrzenia}" Margin="8">
+                    <ListBox Grid.Column="3" Style="{StaticResource List}" Name="DoObejrzeniaLB" DataContext="{Binding DoObejrzenia,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="8">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="auto" Orientation="Horizontal">
@@ -56,10 +56,11 @@
             <TabItem Header="Ocenione">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="149"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
                         <GroupBox Margin="3" Header="Sortuj po:" Style="{StaticResource Border}">
                             <StackPanel>
                                 <RadioButton GroupName="Sort_Obejrzone" Name="AZ_O" Click="Sort_Click" Margin="3" >A-Z</RadioButton>
@@ -83,7 +84,7 @@
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
-                    <ListBox Grid.Column="1" Name="ObejrzaneLB" ItemsSource="{Binding Obejrzane}" Style="{StaticResource List}" Grid.ColumnSpan="2" Margin="8">
+                    <ListBox Grid.Column="2" Name="ObejrzaneLB" DataContext="{Binding Obejrzane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource List}" Margin="8">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="auto" Orientation="Horizontal">

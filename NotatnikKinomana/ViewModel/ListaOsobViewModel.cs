@@ -1,6 +1,7 @@
 ﻿using NotatnikKinomana.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace NotatnikKinomana.ViewModel
     {
         private MainWindowViewModel mainVM;
 
-        private List<Osoba> _osoby;
-        public List<Osoba> Osoby
+        private ObservableCollection<Osoba> _osoby;
+        public ObservableCollection<Osoba> Osoby
         {
             get
             {
@@ -45,7 +46,7 @@ namespace NotatnikKinomana.ViewModel
             }
         }
 
-        public ListaOsobViewModel(List<Osoba> osoby, MainWindowViewModel main)
+        public ListaOsobViewModel(ObservableCollection<Osoba> osoby, MainWindowViewModel main)
         {
             Osoby = osoby;
             this.mainVM = main;

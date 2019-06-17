@@ -1,6 +1,7 @@
 ﻿using NotatnikKinomana.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,8 +44,8 @@ namespace NotatnikKinomana.ViewModel
             }
         }
 
-        private List<Film> _doObejrzenia;
-        public List<Film> DoObejrzenia
+        private ObservableCollection<Film> _doObejrzenia;
+        public ObservableCollection<Film> DoObejrzenia
         {
             get
             {
@@ -62,7 +63,7 @@ namespace NotatnikKinomana.ViewModel
         {
             DBContext context = new DBContext();
 
-            _doObejrzenia = new List<Film>();
+            _doObejrzenia = new ObservableCollection<Film>();
             var original = Uzytkownik.DoObejrzeniaFilmy;
             foreach (DoObejrzeniaFilm dof in original)
             {
@@ -70,8 +71,8 @@ namespace NotatnikKinomana.ViewModel
             }
         }
 
-        private List<Film> _obejrzane;
-        public List<Film> Obejrzane
+        private ObservableCollection<Film> _obejrzane;
+        public ObservableCollection<Film> Obejrzane
         {
             get
             {
@@ -89,7 +90,7 @@ namespace NotatnikKinomana.ViewModel
         {
             DBContext context = new DBContext();
 
-            Obejrzane = new List<Film>();
+            Obejrzane = new ObservableCollection<Film>();
             var original = Uzytkownik.ObejrzaneFilmy;
             foreach (ObejrzanyFilm of in original)
             {
