@@ -159,21 +159,21 @@ namespace NotatnikKinomana.ViewModel
             }
         }
 
-        private Osoba _wybranaOsoba;
-        public Osoba WybranaOsoba
+        private Rola _wybranaRola;
+        public Rola WybranaRola
         {
             get
             {
-                return _wybranaOsoba;
+                return _wybranaRola;
             }
 
             set
             {
-                _wybranaOsoba = value;
+                _wybranaRola = value;
                 NotifyPropertyChanged();
-                if (_wybranaOsoba != null)
+                if (_wybranaRola != null)
                 {
-                    mainVM.CurrentView = new ProfilOsobyView(WybranaOsoba, mainVM);
+                    mainVM.CurrentView = new ProfilOsobyView(WybranaRola.aktor, mainVM);
                 }
             }
         }

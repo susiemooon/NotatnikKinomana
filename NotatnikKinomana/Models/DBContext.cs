@@ -17,6 +17,7 @@ namespace NotatnikKinomana.Models
         public DbSet<Uzytkownik> Uzytkownicy { get; set; }
         public DbSet<Recenzja> Recenzje { get; set; }
         public DbSet<Film> Filmy { get; set; }
+        public DbSet<Rola> Role { get; set; }
         public DbSet<DoObejrzeniaFilm> DoObejrzenia { get; set; }
         public DbSet<ObejrzanyFilm> Obejrzane { get; set; }
         public DbSet<Osoba> Osoby { get; set; }

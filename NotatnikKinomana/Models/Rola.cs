@@ -13,8 +13,8 @@ namespace NotatnikKinomana.Models
         public string nazwa { get; set; }
         public string photo { get; set; }
         public int filmID { get; set; }
-        public Film film { get; set; }
+        public virtual Film film { get; set; }
         public int aktorID { get; set; }
-        public Osoba aktor { get; set; }
+        public virtual Osoba aktor { get; set; }
     }
 }

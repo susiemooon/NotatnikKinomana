@@ -15,7 +15,7 @@ namespace NotatnikKinomana.Models
         public string imie { get; set; }
         public string nazwisko { get; set; }
         public int KrajID { get; set; }
-        public Kraj pochodzenie { get; set; }
+        public virtual Kraj pochodzenie { get; set; }
         public DateTime data_urodzenia { get; set; }
         public string biografia { get; set; }
         public string photo { get; set; }

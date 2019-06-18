@@ -8,7 +8,9 @@
              d:DesignHeight="500" d:DesignWidth="800"
              Style="{StaticResource Login}">
     <Grid>
-
+        <Grid.Resources>
+            <local:DebuggerConverter x:Key="DebuggerConverter"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -23,7 +25,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
@@ -37,12 +39,13 @@
             <TextBlock Grid.Row="2" Margin="3">Kraj produkcji:</TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Film.KrajeProdukcjiString}" />
             <TextBlock Grid.Row="3" Margin="3">Ekipa filmowa:</TextBlock>
-            <ListBox ItemsSource="{Binding Film.ekipa}" SelectedItem="{Binding WybranaOsoba}" Style="{StaticResource SmallList}" BorderThickness="2" BorderBrush="Gray" MinHeight="100" Grid.Row="3" Grid.Column="1">
+            <ListBox ItemsSource="{Binding Film.role}" SelectedItem="{Binding WybranaRola}" Style="{StaticResource SmallList}" BorderThickness="2" BorderBrush="Gray" MinHeight="100" Grid.Row="3" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <Image Source="{Binding photo}" Height="100"></Image>
-                            <TextBlock FontSize="14" FontFamily="Segoe UI" FontWeight="SemiBold" Text="{Binding ImieNazwisko}"></TextBlock>
+                            <TextBlock FontSize="14" FontFamily="Segoe UI" FontWeight="SemiBold" Text="{Binding aktor.ImieNazwisko}"></TextBlock>
+                            <TextBlock FontSize="14" FontFamily="Segoe UI" FontWeight="SemiBold" Text="{Binding nazwa, StringFormat=jako {0}}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -53,7 +56,7 @@
         <Image Source="{Binding Film.plakat}" Grid.Column="2" Width="100" Margin="5" ></Image>
         
         <TextBlock Grid.Row="1" Margin="3">Recenzje użytkowników</TextBlock>
-        <ListView Grid.Row="2" Margin="3" Name="ReviewsListBox" Style="{StaticResource SmallList}" BorderBrush="Gray" BorderThickness="2" ItemsSource="{Binding Film.recenzje}" >
+        <ListView Grid.Row="2" Margin="3" Name="ReviewsListBox" Style="{StaticResource SmallList}" BorderBrush="Gray" BorderThickness="2" ItemsSource="{Binding Film.recenzje}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
             <ListView.Resources>
                 <DataTemplate x:Key="DefaultItemTemplate">
                     <StackPanel >
@@ -79,23 +82,6 @@
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="ContentTemplate" Value="{StaticResource SelectedItemTemplate}" />
-
-                                 <!--animate it as well 
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="MinHeight" To="80" Duration="0:0:1" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="MinHeight" To="0" Duration="0:0:1" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.ExitActions>-->
-
                             </Trigger>
                         </Style.Triggers>
                     </Style>

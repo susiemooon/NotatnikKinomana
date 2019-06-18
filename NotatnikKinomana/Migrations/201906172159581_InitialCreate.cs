@@ -32,6 +32,24 @@ namespace NotatnikKinomana.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.Gatunek",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        name = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Kraj",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        nazwa = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.Osoba",
                 c => new
                     {
@@ -43,22 +61,10 @@ namespace NotatnikKinomana.Migrations
                         biografia = c.String(),
                         photo = c.String(),
                         profesja = c.Int(nullable: false),
-                        Film_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.Kraj", t => t.KrajID, cascadeDelete: true)
-                .ForeignKey("dbo.Film", t => t.Film_ID)
-                .Index(t => t.KrajID)
-                .Index(t => t.Film_ID);
-            
-            CreateTable(
-                "dbo.Kraj",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        nazwa = c.String(),
-                    })
-                .PrimaryKey(t => t.ID);
+                .Index(t => t.KrajID);
             
             CreateTable(
                 "dbo.Rola",
@@ -75,15 +81,6 @@ namespace NotatnikKinomana.Migrations
                 .ForeignKey("dbo.Film", t => t.filmID, cascadeDelete: true)
                 .Index(t => t.filmID)
                 .Index(t => t.aktorID);
-            
-            CreateTable(
-                "dbo.Gatunek",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        name = c.String(),
-                    })
-                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.Recenzja",
@@ -125,19 +122,6 @@ namespace NotatnikKinomana.Migrations
                 .Index(t => t.FilmID);
             
             CreateTable(
-                "dbo.KrajFilm",
-                c => new
-                    {
-                        Kraj_ID = c.Int(nullable: false),
-                        Film_ID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Kraj_ID, t.Film_ID })
-                .ForeignKey("dbo.Kraj", t => t.Kraj_ID, cascadeDelete: true)
-                .ForeignKey("dbo.Film", t => t.Film_ID, cascadeDelete: true)
-                .Index(t => t.Kraj_ID)
-                .Index(t => t.Film_ID);
-            
-            CreateTable(
                 "dbo.GatunekFilm",
                 c => new
                     {
@@ -148,6 +132,19 @@ namespace NotatnikKinomana.Migrations
                 .ForeignKey("dbo.Gatunek", t => t.Gatunek_ID, cascadeDelete: true)
                 .ForeignKey("dbo.Film", t => t.Film_ID, cascadeDelete: true)
                 .Index(t => t.Gatunek_ID)
+                .Index(t => t.Film_ID);
+            
+            CreateTable(
+                "dbo.KrajFilm",
+                c => new
+                    {
+                        Kraj_ID = c.Int(nullable: false),
+                        Film_ID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Kraj_ID, t.Film_ID })
+                .ForeignKey("dbo.Kraj", t => t.Kraj_ID, cascadeDelete: true)
+                .ForeignKey("dbo.Film", t => t.Film_ID, cascadeDelete: true)
+                .Index(t => t.Kraj_ID)
                 .Index(t => t.Film_ID);
             
             CreateTable(
@@ -188,41 +185,39 @@ namespace NotatnikKinomana.Migrations
             DropForeignKey("dbo.ObejrzanyFilm", "FilmID", "dbo.Film");
             DropForeignKey("dbo.UzytkownikDoObejrzeniaFilm", "DoObejrzeniaFilm_ID", "dbo.DoObejrzeniaFilm");
             DropForeignKey("dbo.UzytkownikDoObejrzeniaFilm", "Uzytkownik_username", "dbo.Uzytkownik");
-            DropForeignKey("dbo.GatunekFilm", "Film_ID", "dbo.Film");
-            DropForeignKey("dbo.GatunekFilm", "Gatunek_ID", "dbo.Gatunek");
-            DropForeignKey("dbo.Osoba", "Film_ID", "dbo.Film");
             DropForeignKey("dbo.Rola", "filmID", "dbo.Film");
             DropForeignKey("dbo.Rola", "aktorID", "dbo.Osoba");
             DropForeignKey("dbo.Osoba", "KrajID", "dbo.Kraj");
             DropForeignKey("dbo.KrajFilm", "Film_ID", "dbo.Film");
             DropForeignKey("dbo.KrajFilm", "Kraj_ID", "dbo.Kraj");
+            DropForeignKey("dbo.GatunekFilm", "Film_ID", "dbo.Film");
+            DropForeignKey("dbo.GatunekFilm", "Gatunek_ID", "dbo.Gatunek");
             DropIndex("dbo.ObejrzanyFilmUzytkownik", new[] { "Uzytkownik_username" });
             DropIndex("dbo.ObejrzanyFilmUzytkownik", new[] { "ObejrzanyFilm_ID" });
             DropIndex("dbo.UzytkownikDoObejrzeniaFilm", new[] { "DoObejrzeniaFilm_ID" });
             DropIndex("dbo.UzytkownikDoObejrzeniaFilm", new[] { "Uzytkownik_username" });
-            DropIndex("dbo.GatunekFilm", new[] { "Film_ID" });
-            DropIndex("dbo.GatunekFilm", new[] { "Gatunek_ID" });
             DropIndex("dbo.KrajFilm", new[] { "Film_ID" });
             DropIndex("dbo.KrajFilm", new[] { "Kraj_ID" });
+            DropIndex("dbo.GatunekFilm", new[] { "Film_ID" });
+            DropIndex("dbo.GatunekFilm", new[] { "Gatunek_ID" });
             DropIndex("dbo.ObejrzanyFilm", new[] { "FilmID" });
             DropIndex("dbo.Recenzja", new[] { "autor_username" });
             DropIndex("dbo.Recenzja", new[] { "FilmID" });
             DropIndex("dbo.Rola", new[] { "aktorID" });
             DropIndex("dbo.Rola", new[] { "filmID" });
-            DropIndex("dbo.Osoba", new[] { "Film_ID" });
             DropIndex("dbo.Osoba", new[] { "KrajID" });
             DropIndex("dbo.DoObejrzeniaFilm", new[] { "FilmID" });
             DropTable("dbo.ObejrzanyFilmUzytkownik");
             DropTable("dbo.UzytkownikDoObejrzeniaFilm");
-            DropTable("dbo.GatunekFilm");
             DropTable("dbo.KrajFilm");
+            DropTable("dbo.GatunekFilm");
             DropTable("dbo.ObejrzanyFilm");
             DropTable("dbo.Uzytkownik");
             DropTable("dbo.Recenzja");
-            DropTable("dbo.Gatunek");
             DropTable("dbo.Rola");
-            DropTable("dbo.Kraj");
             DropTable("dbo.Osoba");
+            DropTable("dbo.Kraj");
+            DropTable("dbo.Gatunek");
             DropTable("dbo.Film");
             DropTable("dbo.DoObejrzeniaFilm");
         }

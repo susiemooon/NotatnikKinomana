@@ -13,7 +13,7 @@ namespace NotatnikKinomana.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201906092042452_InitialCreate"; }
+            get { return "201906172159581_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

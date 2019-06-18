@@ -65,10 +65,14 @@ namespace NotatnikKinomana.ViewModel
 
             _doObejrzenia = new ObservableCollection<Film>();
             var original = Uzytkownik.DoObejrzeniaFilmy;
-            foreach (DoObejrzeniaFilm dof in original)
+            if(original != null)
             {
-                  DoObejrzenia.Add(dof.film);
+                foreach (DoObejrzeniaFilm dof in original)
+                {
+                    DoObejrzenia.Add(dof.film);
+                }
             }
+            
         }
 
         private ObservableCollection<Film> _obejrzane;
@@ -92,9 +96,12 @@ namespace NotatnikKinomana.ViewModel
 
             Obejrzane = new ObservableCollection<Film>();
             var original = Uzytkownik.ObejrzaneFilmy;
-            foreach (ObejrzanyFilm of in original)
+            if (original != null)
             {
+                foreach (ObejrzanyFilm of in original)
+                {
                     Obejrzane.Add(of.film);
+                }
             }
         }
 

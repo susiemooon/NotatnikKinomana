@@ -17,7 +17,7 @@ namespace NotatnikKinomana.Models
         public float srednia_ocen { get; set; }
         public virtual ICollection<Kraj> kraje_produkcji { get; set; }
         public virtual ICollection<Gatunek> gatunki { get; set; }
-        public virtual ICollection<Osoba> ekipa { get; set; }
+        public virtual ICollection<Rola> role { get; set; }
         public virtual ICollection<Recenzja> recenzje { get; set; }
 
         [NotMapped]

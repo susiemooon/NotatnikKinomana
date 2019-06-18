@@ -69,9 +69,9 @@
     <Compile Include="Data\RecenzjaDataService.cs" />
     <Compile Include="Data\UzytkownikDataService.cs" />
     <Compile Include="DebuggerConverter.cs" />
-    <Compile Include="Migrations\201906092042452_InitialCreate.cs" />
-    <Compile Include="Migrations\201906092042452_InitialCreate.Designer.cs">
-      <DependentUpon>201906092042452_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201906172159581_InitialCreate.cs" />
+    <Compile Include="Migrations\201906172159581_InitialCreate.Designer.cs">
+      <DependentUpon>201906172159581_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="RadioButtonConverter.cs" />
     <Compile Include="IDialog.cs" />
@@ -180,8 +180,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201906092042452_InitialCreate.resx">
-      <DependentUpon>201906092042452_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906172159581_InitialCreate.resx">
+      <DependentUpon>201906172159581_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -198,19 +198,69 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\boraph.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\charlize_theron.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\filmy\01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\osoby\01.jpg" />
+    <Resource Include="Resources\osoby\02.jpg" />
+    <Resource Include="Resources\osoby\03.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\andrew_scott.jpg" />
+    <Resource Include="Resources\filmy\02.jpg" />
+    <Resource Include="Resources\filmy\03.jpg" />
+    <Resource Include="Resources\filmy\04.jpg" />
+    <Resource Include="Resources\filmy\05.jpg" />
+    <Resource Include="Resources\filmy\06.jpg" />
+    <Resource Include="Resources\filmy\07.jpg" />
+    <Resource Include="Resources\filmy\08.jpg" />
+    <Resource Include="Resources\filmy\09.jpg" />
+    <Resource Include="Resources\filmy\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\osoby\04.jpg" />
+    <Resource Include="Resources\osoby\05.jpg" />
+    <Resource Include="Resources\osoby\06.jpg" />
+    <Resource Include="Resources\osoby\07.jpg" />
+    <Resource Include="Resources\osoby\08.jpg" />
+    <Resource Include="Resources\osoby\09.jpg" />
+    <Resource Include="Resources\osoby\10.jpg" />
+    <Resource Include="Resources\osoby\11.jpg" />
+    <Resource Include="Resources\osoby\12.jpg" />
+    <Resource Include="Resources\osoby\13.jpg" />
+    <Resource Include="Resources\osoby\14.jpg" />
+    <Resource Include="Resources\osoby\15.jpg" />
+    <Resource Include="Resources\osoby\16.jpg" />
+    <Resource Include="Resources\osoby\17.jpg" />
+    <Resource Include="Resources\osoby\18.jpg" />
+    <Resource Include="Resources\osoby\19.jpg" />
+    <Resource Include="Resources\osoby\20.jpg" />
+    <Resource Include="Resources\osoby\21.jpg" />
+    <Resource Include="Resources\osoby\22.jpg" />
+    <Resource Include="Resources\osoby\23.jpg" />
+    <Resource Include="Resources\osoby\24.jpg" />
+    <Resource Include="Resources\osoby\25.jpg" />
+    <Resource Include="Resources\osoby\26.jpg" />
+    <Resource Include="Resources\osoby\27.png" />
+    <Resource Include="Resources\osoby\28.jpg" />
+    <Resource Include="Resources\osoby\29.jpg" />
+    <Resource Include="Resources\osoby\30.jpg" />
+    <Resource Include="Resources\osoby\31.jpg" />
+    <Resource Include="Resources\osoby\32.jpg" />
+    <Resource Include="Resources\osoby\33.jpg" />
+    <Resource Include="Resources\osoby\34.jpg" />
+    <Resource Include="Resources\osoby\35.jpg" />
+    <Resource Include="Resources\osoby\36.jpg" />
+    <Resource Include="Resources\osoby\36.png" />
+    <Resource Include="Resources\osoby\38.jpg" />
+    <Resource Include="Resources\osoby\39.jpg" />
+    <Resource Include="Resources\osoby\40.jpg" />
+    <Resource Include="Resources\osoby\41.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
