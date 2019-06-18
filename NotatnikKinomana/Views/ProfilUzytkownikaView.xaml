@@ -28,18 +28,7 @@
                                 <RadioButton Margin="3"  GroupName="Sort" Name="SredniaR" Click="Sort_Click">Średnia ocen rosnąco</RadioButton>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Margin="3" Header="Filtrowanie:" Style="{StaticResource Border}">
-                            <StackPanel>
-                                <ComboBox  Margin="2" IsEditable="True">
-                                    <ComboBoxItem>Gatunek</ComboBoxItem>
-                                    <ComboBoxItem>Rok premiery</ComboBoxItem>
-                                    <ComboBoxItem>Kraj</ComboBoxItem>
-                                    <ComboBoxItem>Średnia ocen</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox Margin="3" Padding="4" Style="{StaticResource Border}"></TextBox>
-                                <Button Margin="3" Padding="4" Style="{StaticResource ButtonRegister}">Filtruj</Button>
-                            </StackPanel>
-                        </GroupBox>
+                        
                     </StackPanel>
                     <ListBox Grid.Column="3" Style="{StaticResource List}" Name="DoObejrzeniaLB" DataContext="{Binding DoObejrzenia,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="8">
                         <ListBox.ItemTemplate>
@@ -71,18 +60,7 @@
                                 <RadioButton Margin="3" GroupName="Sort_Obejrzone" Name="SredniaR_O" Click="Sort_Click">Średnia ocen rosnąco</RadioButton>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Margin="3" Header="Filtrowanie:" Style="{StaticResource Border}">
-                            <StackPanel>
-                                <ComboBox  Margin="2" IsEditable="True">
-                                    <ComboBoxItem>Gatunek</ComboBoxItem>
-                                    <ComboBoxItem>Rok premiery</ComboBoxItem>
-                                    <ComboBoxItem>Kraj</ComboBoxItem>
-                                    <ComboBoxItem>Średnia ocen</ComboBoxItem>
-                                </ComboBox>
-                                <TextBox Margin="3" Padding="4" Style="{StaticResource Border}"></TextBox>
-                                <Button Margin="3" Padding="4" Style="{StaticResource Button}">Filtruj</Button>
-                            </StackPanel>
-                        </GroupBox>
+                        
                     </StackPanel>
                     <ListBox Grid.Column="2" Name="ObejrzaneLB" DataContext="{Binding Obejrzane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource List}" Margin="8">
                         <ListBox.ItemTemplate>

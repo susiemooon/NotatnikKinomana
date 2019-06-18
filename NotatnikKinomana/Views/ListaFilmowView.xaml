@@ -25,18 +25,7 @@
                     <RadioButton GroupName="Sort" Name="SredniaR" Click="Sort_Click" Margin="3" >Średnia ocen rosnąco</RadioButton>
                 </StackPanel>
                 </GroupBox>
-            <GroupBox Margin="3" Header="Filtrowanie:" Style="{StaticResource Border}">
-                    <StackPanel>
-                    <ComboBox  Margin="2" IsEditable="True">
-                            <ComboBoxItem>Gatunek</ComboBoxItem>
-                            <ComboBoxItem>Rok premiery</ComboBoxItem>
-                            <ComboBoxItem>Kraj</ComboBoxItem>
-                            <ComboBoxItem>Średnia ocen</ComboBoxItem>
-                        </ComboBox>
-                    <TextBox Margin="3" Padding="4" Style="{StaticResource Border}"></TextBox>
-                    <Button Margin="3" Padding="4" Style="{StaticResource Button}">Filtruj</Button>
-                    </StackPanel>
-                </GroupBox>
+            
             </StackPanel>
 
         <ListBox Grid.Column="2" Style="{StaticResource List}" Name="filmList" ItemsSource="{Binding Filmy, UpdateSourceTrigger=PropertyChanged}" 

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
 
 namespace NotatnikKinomana.ViewModel
@@ -150,9 +151,14 @@ namespace NotatnikKinomana.ViewModel
                             film.srednia_ocen = (film.srednia_ocen + recenzja.ocena) / 2;
                         else
                             film.srednia_ocen += recenzja.ocena;
-                                                
-                        context.Recenzje.AddOrUpdate(recenzja);
-                        context.Filmy.AddOrUpdate(film);
+                        try { context.Recenzje.AddOrUpdate(recenzja); }                        
+                        catch(Exception e)
+                        {
+                            MessageBox.Show("Operacja nie powiodła się", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                        
+
+                    }
+                    context.Filmy.AddOrUpdate(film);
                         context.SaveChanges();
                     }
                 }

@@ -28,7 +28,7 @@
             </Grid.ColumnDefinitions>
             <Image Name="userImage" Source="/Resources/user.png" Margin="8" Width="50" Height="50" MouseLeftButtonDown="UserImage_MouseLeftButtonDown"></Image>
             <TextBox Name="searchTextBox" Grid.Column="1" Margin="8,16" FontSize="16" Text="{Binding TekstWyszukiwania}" Style="{StaticResource Border}"></TextBox>
-            <Button Name="searchButton" Grid.Column="2" Command="{Binding SzukajCommand}" Style="{StaticResource Button}">Search</Button>
+            <Button Name="searchButton" Grid.Column="2" Command="{Binding SzukajCommand}" IsDefault="True" Style="{StaticResource Button}">Search</Button>
             <GroupBox Grid.Column="3" Header="Typ wyszukiwania"  FontSize="14"  BorderBrush="Black" >
                 <StackPanel Orientation="Vertical" >
                     <RadioButton GroupName="TypWyszukiwaniaGroup" Content="Film" IsChecked="{Binding Path=TypWyszukiwania, Converter={StaticResource RadioButtonConverter}, ConverterParameter=film}" ></RadioButton>

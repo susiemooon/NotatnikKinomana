@@ -22,7 +22,7 @@
         <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0">Hasło</Label>
         <PasswordBox Name="passwordTB" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Border}" PasswordChanged="PasswordTB_PasswordChanged"></PasswordBox>
         <StackPanel  Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Margin="24,0" Orientation="Horizontal">
-            <Button Name="Zaloguj" Width="90" Height="30" Margin="8,8" Style="{StaticResource Button}" Command="{Binding ZalogujCommand}" >Zaloguj</Button>
+            <Button Name="Zaloguj" Width="90" Height="30" Margin="8,8" Style="{StaticResource Button}" IsDefault="True" Command="{Binding ZalogujCommand}" >Zaloguj</Button>
             <Button Name="Zarejestruj"  Width="90" Height="30" Margin="8,8" Style="{StaticResource ButtonRegister}" Command="{Binding ZarejestrujCommand}" Content="Zarejestruj"/>
         </StackPanel>
         

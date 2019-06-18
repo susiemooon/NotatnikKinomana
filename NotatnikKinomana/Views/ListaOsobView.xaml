@@ -23,16 +23,7 @@
                     <RadioButton Margin="3" GroupName="sort" Name="NazwiskoZA" Click="Sort_Click">Nazwisko Z-A</RadioButton>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Margin="3" Header="Filtrowanie:" Style="{StaticResource Border}">
-                <StackPanel>
-                    <ComboBox  Margin="2" IsEditable="True">
-                        <ComboBoxItem>Kraj</ComboBoxItem>
-                        <ComboBoxItem>Profesja</ComboBoxItem>
-                    </ComboBox>
-                    <TextBox Margin="3" Padding="4" Style="{StaticResource Border}" ></TextBox>
-                    <Button Margin="3" Padding="4" Style="{StaticResource Button}">Filtruj</Button>
-                </StackPanel>
-            </GroupBox>
+            
         </StackPanel>
 
         <ListBox Grid.Column="2" Style="{StaticResource List}" Name="osobyList"  ItemsSource="{Binding Osoby, UpdateSourceTrigger=PropertyChanged}"

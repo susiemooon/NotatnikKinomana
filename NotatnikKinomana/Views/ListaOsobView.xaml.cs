@@ -44,10 +44,10 @@ namespace NotatnikKinomana.Views
             {
                 switch (sortBy)
                 {
-                    case "AZ":
+                    case "ImieAZ":
                         this.osobyList.ItemsSource = ((ListaOsobViewModel)this.DataContext).Osoby.OrderBy(x => x.imie);
                         break;
-                    case "ZA":
+                    case "ImieZA":
                         this.osobyList.ItemsSource = ((ListaOsobViewModel)this.DataContext).Osoby.OrderByDescending(x => x.imie);
                         break;
                     case "NazwiskoAZ":
